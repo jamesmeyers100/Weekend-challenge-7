@@ -14,14 +14,14 @@ class SupportedPage extends Component {
     constructor(){
         super();
         this.state = {
-          supported: ''
+          support: ''
         }
       }
 
       handleChange = (event) => {
           console.log(`Handling supported change`, event.target.value)
           this.setState({
-              ...this.state, supported: event.target.value
+              ...this.state, support: event.target.value
           })
       }
 
@@ -32,7 +32,7 @@ class SupportedPage extends Component {
       }
 
       sendToRedux(){
-        const action = {type: 'ADD_SUPPORTED', payload: this.state.supported};
+        const action = {type: 'ADD_SUPPORTED', payload: this.state.support};
         this.props.dispatch(action);
       }
 
@@ -54,7 +54,7 @@ class SupportedPage extends Component {
                         <option value="5">⭐⭐⭐⭐⭐</option>
                     </select> */}
                     <input onChange={this.handleChange} placeholder="Rate 1 to 5" 
-                        value={this.state.supported} name="supported"/>
+                        value={this.state.support} name="support"/>
                     <button onClick={this.handleSubmit}><Link to="/comment">Next</Link></button>
                 </div>
             </div>

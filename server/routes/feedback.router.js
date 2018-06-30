@@ -4,19 +4,19 @@ const router = express.Router();
 const pool = require('../modules/pool')
 
 // POST feedback
-router.post('/api/feedback', (req, res) => {
-    console.log(`in POST /api/feedback`, req.body);
+router.post('/', (req, res) => {
+    console.log(`in POST /feedback`, req.body);
     const feedback = req.body
-    const queryText = `INSERT INTO feedback ("feeling", "understanding", "support", "comment")
+    const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4)`;
 
-    pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment])
+    pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comments])
     .then((result) => {
         console.log('post worked!')
         res.sendStatus(201)
     })
     .catch((error) =>{
-        console.log('error POSTing to /api/feedback', error)
+        console.log('error POSTing to /feedback', error)
         alert('error posting data. call your dev team.')
         res.sendStatus(500)
     })

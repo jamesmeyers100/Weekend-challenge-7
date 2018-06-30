@@ -13,7 +13,7 @@ const mapReduxStateToProps = (reduxStore) => ({
 });
 
 class ThankYouPage extends Component {
-    
+
       handleSubmit = (event) => {
         console.log(this.props.reduxStore.feedbackReducer);
         event.preventDefault();
@@ -22,7 +22,14 @@ class ThankYouPage extends Component {
 
       sendToDatabase(){
         console.log(`sending to the database`)
-        axios.post('/')
+        const feedback = this.props.reduxStore.feedbackReducer
+        axios.post('/feedback', feedback )
+        .then((response) => {
+            console.log(`able to post to DB`)
+        })
+        .catch((error) => {
+            console.log('error', error)
+        })
       }
 
     render() {

@@ -15,14 +15,14 @@ class CommentsPage extends Component {
     constructor(){
         super();
         this.state = {
-          comment: ''
+          comments: ''
         }
       }
 
       handleChange = (event) => {
           console.log(`Handling comment change`, event.target.value)
           this.setState({
-              ...this.state, comment: event.target.value
+              ...this.state, comments: event.target.value
           })
       }
 
@@ -33,7 +33,7 @@ class CommentsPage extends Component {
       }
 
       sendToRedux(){
-        const action = {type: 'ADD_COMMENT', payload: this.state.comment};
+        const action = {type: 'ADD_COMMENT', payload: this.state.comments};
         this.props.dispatch(action);
       }
     render() {
@@ -46,7 +46,7 @@ class CommentsPage extends Component {
                 <br />
                 <h4>Have anything else you'd like to share?</h4>
                 <input onChange={this.handleChange} placeholder="Leave comment here" 
-                        value={this.state.comment} name="comment"/>
+                        value={this.state.comments} name="comment"/>
                     <button onClick={this.handleSubmit}><Link to="/thankyou">Next</Link></button>
 
             </div>

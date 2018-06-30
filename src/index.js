@@ -17,10 +17,10 @@ const feedbackReducer = (state={}, action) => {
         return {...state, understanding: action.payload};
     } else if( action.type === 'ADD_SUPPORTED') {
         console.log(`Hey, I'm reducing your supported!`, action)
-        return {...state, supported: action.payload};
+        return {...state, support: action.payload};
     } else if( action.type === 'ADD_COMMENT') {
         console.log(`Hey, I'm reducing your comment`, action)
-        return {...state, comment: action.payload};
+        return {...state, comments: action.payload};
     } 
     return state;
 }
