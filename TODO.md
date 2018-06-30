@@ -1,24 +1,28 @@
-[ ] Make list of things to do
-[ ] View 1 - "How are you feeling?" Requirements
+
+[x] Make list of things to do
+[x] Make reduxStore
+[x] Make Reducer
+[ ] Make a Header/Header Component
+[ ][ ] View 1 - "How are you feeling?" Requirements
     [ ] Header 
         [ ] Logo 
         [ ] 'Feedback' title
     [ ] Body
-        [ ] Currrent page/Out of
+        [x] Currrent page/Out of
         [ ] progress bar
         [ ] card
-            [ ] 'How are you feeling?' spot
-            [ ] rating area (1-5)
+            [x] 'How are you feeling?' spot
+            [x] rating area (1-5)
                 - option list?
-            [ ] Next button/arrow
-                - stores to redux
-                - routes to View 2
-[ ] View 2 - "How well are you understanding the content?" Requirements
+            [x] Next button/arrow
+                [x] stores to redux
+                [ ] routes to View 2
+[ ][ ] View 2 - "How well are you understanding the content?" Requirements
     [ ] Header 
         [ ] Logo 
         [ ] 'Feedback' title
     [ ] Body
-        [ ] Currrent page/Out of
+        [x] Currrent page/Out of
         [ ] progress bar
         [ ] card
             [ ] 'How well are you understanding...?' spot
@@ -32,7 +36,7 @@
         [ ] Logo 
         [ ] 'Feedback' title
     [ ] Body
-        [ ] Currrent page/Out of
+        [x] Currrent page/Out of
         [ ] progress bar
         [ ] card
             [ ] 'How well are you being supported?' spot
