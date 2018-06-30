@@ -8,19 +8,19 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
-const feedbackReducer = (state=[], action) => {
+const feedbackReducer = (state={}, action) => {
     if( action.type === 'ADD_FEELING'){
         console.log(`Hey, I'm reducing your feeling!`, action);
-        return [...state];
+        return {...state, feeling: action.payload};
     } else if( action.type === 'ADD_UNDERSTANDING') {
         console.log(`Hey, I'm reducing your understanding!`, action)
-        return [...state, action.payload];
+        return {...state, understanding: action.payload};
     } else if( action.type === 'ADD_SUPPORTED') {
         console.log(`Hey, I'm reducing your supported!`, action)
-        return [...state, action.payload];
+        return {...state, supported: action.payload};
     } else if( action.type === 'ADD_COMMENT') {
         console.log(`Hey, I'm reducing your comment`, action)
-        return [...state, action.payload];
+        return {...state, comment: action.payload};
     } 
     return state;
 }

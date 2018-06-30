@@ -1,5 +1,7 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
@@ -11,22 +13,16 @@ const mapReduxStateToProps = (reduxStore) => ({
 });
 
 class ThankYouPage extends Component {
-
-      handleChange = (event) => {
-          console.log(`Handling supported change`, event.target.value)
-          this.setState({
-              ...this.state, supported: event.target.value
-          })
-      }
-
+    
       handleSubmit = (event) => {
-        console.log(this.state);
+        console.log(this.props.reduxStore.feedbackReducer);
         event.preventDefault();
-        this.sendToDatabase(this.reduxStore);
+        this.sendToDatabase(this.props.reduxStore.feedbackReducer);
       }
 
       sendToDatabase(){
         console.log(`sending to the database`)
+        axios.post('/')
       }
 
     render() {

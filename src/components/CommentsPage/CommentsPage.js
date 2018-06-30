@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
@@ -46,7 +47,7 @@ class CommentsPage extends Component {
                 <h4>Have anything else you'd like to share?</h4>
                 <input onChange={this.handleChange} placeholder="Leave comment here" 
                         value={this.state.comment} name="comment"/>
-                    <button onClick={this.handleSubmit}>Next</button>
+                    <button onClick={this.handleSubmit}><Link to="/thankyou">Next</Link></button>
 
             </div>
         )

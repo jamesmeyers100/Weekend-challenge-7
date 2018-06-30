@@ -65,3 +65,14 @@
         [ ] "Thank you"
         [ ] "New Feedback" button
             - routes to view 1
+            - axios.post to database
+[ ] View 6 - Admin Requirements
+    [ ] Header 
+        [ ] Logo 
+        [ ] 'Feedback' title
+    [ ] Body
+        [ ] table
+        [ ] delete
+            - axios.delete
+          
+

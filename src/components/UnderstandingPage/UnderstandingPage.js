@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
@@ -39,7 +40,7 @@ class UnderstandingPage extends Component {
         console.log('Rendering UnderstandingPage')
         return(
             <div>
-                <pre>{JSON.stringify(this.props)}</pre>
+                {/* <pre>{JSON.stringify(this.props)}</pre> */}
                 <h2>How are you understanding everything?</h2>
                 <h2>2 of 4 pages</h2>
                 <h4>Progress Bar</h4>
@@ -53,7 +54,7 @@ class UnderstandingPage extends Component {
                     </select> */}
                     <input onChange={this.handleChange} placeholder="Rate 1 to 5" 
                         value={this.state.understanding} name="understanding"/>
-                    <button onClick={this.handleSubmit}>Next</button>
+                    <button onClick={this.handleSubmit}><Link to="/supported">Next</Link></button>
                 </div>
             </div>
         )

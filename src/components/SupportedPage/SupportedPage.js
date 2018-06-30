@@ -1,13 +1,13 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
     // this.props.reduxStore will contain the entire store
     // reduxStore: reduxStore
     // To only render when secondReducer is changed =>
-    reduxStore 
-    // this.props.colors will be an array
+    reduxStore
 });
 
 class SupportedPage extends Component {
@@ -40,7 +40,7 @@ class SupportedPage extends Component {
         console.log('Rendering SupportedPage')
         return(
             <div>
-                <pre>{JSON.stringify(this.props)}</pre>
+                {/* <pre>{JSON.stringify(this.props)}</pre> */}
                 <h2>Are you feeling supported?</h2>
                 <h2>3 of 4 pages</h2>
                 <h4>Progress Bar</h4>
@@ -55,7 +55,7 @@ class SupportedPage extends Component {
                     </select> */}
                     <input onChange={this.handleChange} placeholder="Rate 1 to 5" 
                         value={this.state.supported} name="supported"/>
-                    <button onClick={this.handleSubmit}>Next</button>
+                    <button onClick={this.handleSubmit}><Link to="/comment">Next</Link></button>
                 </div>
             </div>
         )
