@@ -10,21 +10,35 @@ const mapReduxStateToProps = (reduxStore) => ({
 
 class FeedbackPage extends Component {
 
-    getFeedback = () => {
+    constructor(){
+        super();
+        this.state = {
+          feedback: []
+        }
+      }
+    getFeedback(){
         axios.get('/feedback')
         .then((response) => {
             console.log(response.data);
-            const action = {type: 'FILL_TABLE', payload: response.data};
-            this.props.dispatch(action);
+            this.setState({
+                feedback: response.data
+            })
+            // const action = {type: 'FILL_TABLE', payload: response.data};
+            // this.props.dispatch(action);
         })
         .catch((error) => { 
             console.log(error)
         })
     }
 
-    deleteFeedback(){
+    deleteFeedback = (id) => {
         axios.delete(`/feedback/${id}`)
-        .then()
+        .then((response) => {
+            this.getFeedback();
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
     
     componentDidMount(){
@@ -43,12 +57,12 @@ class FeedbackPage extends Component {
                             <th>Comprehension</th>
                             <th>Support</th>
                             <th>Comments</th>
-                            <th>Delete</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                            {this.props.reduxStore.adminReducer.map( (feedback, id) => 
-                            <FeedbackRow key={id} feedback={feedback}/>)}
+                            {this.state.feedback.map( (feedback, id) => 
+                            <FeedbackRow key={id} feedback={feedback} delete={this.deleteFeedback}/>)}
                     </tbody>
                 </table>
             </div>

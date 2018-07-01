@@ -28,19 +28,13 @@ const feedbackReducer = (state={}, action) => {
     return state;
 }
 
-const adminReducer = ( state=[], action) => {
-    if( action.type === 'FILL_TABLE') {
-        console.log(`Hey, you're getting the data!`)
-        return action.payload
-    }
-    return state
-}
+
 
 
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
-        adminReducer
+        // adminReducer
     }),
     applyMiddleware(logger)
 );
