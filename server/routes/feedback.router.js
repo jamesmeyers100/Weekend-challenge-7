@@ -22,9 +22,22 @@ router.post('/', (req, res) => {
     })
 })
 
+// GET feedback
+router.get('/', (req, res) => {
+    console.log('GET /feedback')
+    const queryText = 'SELECT * FROM feedback';
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows)
+    })
+    .catch((error) => {
+        console.log(`There's been an error with GET`, error)
+    })
+})
+
 // DELETE feedback
 router.delete('/:id', (req, res) => {
-    console.log('DELETE /api/feedback', req.params.id);
+    console.log('DELETE /feedback', req.params.id);
     const id = req.params.id;
     console.log('In DELETE router');
     const queryText = 'DELETE FROM feedback WHERE id=$1';

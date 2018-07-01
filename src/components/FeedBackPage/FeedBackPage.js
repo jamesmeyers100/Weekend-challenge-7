@@ -1,17 +1,35 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import FeedbackRow from './FeedbackRow';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
-    // this.props.reduxStore will contain the entire store
-    // reduxStore: reduxStore
-    // To only render when secondReducer is changed =>
     reduxStore 
-    // this.props.colors will be an array
 });
 
 class FeedbackPage extends Component {
 
+    getFeedback = () => {
+        axios.get('/feedback')
+        .then((response) => {
+            console.log(response.data);
+            const action = {type: 'FILL_TABLE', payload: response.data};
+            this.props.dispatch(action);
+        })
+        .catch((error) => { 
+            console.log(error)
+        })
+    }
+
+    deleteFeedback(){
+        axios.delete(`/feedback/${id}`)
+        .then()
+    }
+    
+    componentDidMount(){
+        this.getFeedback();
+    }
 
     render() {
         console.log('Rendering ThankYouPage')
@@ -29,13 +47,8 @@ class FeedbackPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Dummy Feeling</td>
-                            <td>Dummy Rating</td>
-                            <td>Dummy Rating</td>
-                            <td>Dummy Comment</td>
-                            <button>Delete</button>
-                        </tr>
+                            {this.props.reduxStore.adminReducer.map( (feedback, id) => 
+                            <FeedbackRow key={id} feedback={feedback}/>)}
                     </tbody>
                 </table>
             </div>

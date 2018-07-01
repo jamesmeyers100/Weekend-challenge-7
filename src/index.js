@@ -11,23 +11,36 @@ import logger from 'redux-logger';
 const feedbackReducer = (state={}, action) => {
     if( action.type === 'ADD_FEELING'){
         console.log(`Hey, I'm reducing your feeling!`, action);
-        return {...state, feeling: action.payload};
+        return { ...state, feeling: action.payload };
     } else if( action.type === 'ADD_UNDERSTANDING') {
         console.log(`Hey, I'm reducing your understanding!`, action)
-        return {...state, understanding: action.payload};
+        return { ...state, understanding: action.payload };
     } else if( action.type === 'ADD_SUPPORTED') {
         console.log(`Hey, I'm reducing your supported!`, action)
-        return {...state, support: action.payload};
+        return { ...state, support: action.payload };
     } else if( action.type === 'ADD_COMMENT') {
         console.log(`Hey, I'm reducing your comment`, action)
-        return {...state, comments: action.payload};
-    } 
+        return { ...state, comments: action.payload };
+    } else if( action.type === 'DELETE_FEEDBACK') {
+        console.log(`Hey, I'm clearing the redux store`)
+        return action.payload
+    }
     return state;
 }
+
+const adminReducer = ( state=[], action) => {
+    if( action.type === 'FILL_TABLE') {
+        console.log(`Hey, you're getting the data!`)
+        return action.payload
+    }
+    return state
+}
+
 
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
+        adminReducer
     }),
     applyMiddleware(logger)
 );

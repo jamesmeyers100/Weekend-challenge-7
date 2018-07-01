@@ -36,6 +36,7 @@ class CommentsPage extends Component {
         const action = {type: 'ADD_COMMENT', payload: this.state.comments};
         this.props.dispatch(action);
       }
+      
     render() {
         console.log('Rendering CommentPage')
         return(

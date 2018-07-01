@@ -17,7 +17,7 @@ class ThankYouPage extends Component {
       handleSubmit = (event) => {
         console.log(this.props.reduxStore.feedbackReducer);
         event.preventDefault();
-        this.sendToDatabase(this.props.reduxStore.feedbackReducer);
+    
       }
 
       sendToDatabase(){
@@ -25,11 +25,17 @@ class ThankYouPage extends Component {
         const feedback = this.props.reduxStore.feedbackReducer
         axios.post('/feedback', feedback )
         .then((response) => {
-            console.log(`able to post to DB`)
+            console.log(`able to post to DB`, response)
+            const action = {type: 'DELETE_FEEDBACK', payload:''}
+            this.props.dispatch(action)
         })
         .catch((error) => {
             console.log('error', error)
         })
+      }
+
+      componentDidMount(){
+          this.sendToDatabase(this.props.reduxStore.feedbackReducer);
       }
 
     render() {
@@ -37,7 +43,7 @@ class ThankYouPage extends Component {
         return(
             <div>
                 <h1>THANK YOU!</h1>
-                <button onClick={this.handleSubmit}>Leave New Feedback</button>
+                <button><Link to="/">Leave New Feedback</Link></button>
             </div>
         )
     }

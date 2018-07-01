@@ -8,9 +8,6 @@ const mapReduxStateToProps = (reduxStore) => ({
     // reduxStore: reduxStore
     reduxStore 
 });
-
-
-
 class FeelingPage extends Component {
 
     constructor(){
