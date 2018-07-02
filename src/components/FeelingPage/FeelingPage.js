@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+// import Button from '@material-ui/core/Button'
+
 
 
 const mapReduxStateToProps = (reduxStore) => ({
-    // this.props.reduxStore will contain the entire store
-    // reduxStore: reduxStore
     reduxStore 
 });
 class FeelingPage extends Component {
@@ -41,7 +41,7 @@ class FeelingPage extends Component {
             <div>
                 {/* <pre>{JSON.stringify(this.props)}</pre> */}
                 <h2>1 of 4 pages</h2>
-                <h4>Progress Bar</h4>
+                {/* <h4>Progress Bar</h4> */}
                 <br />
                 <h2>How are you feeling today?</h2>
                 <div onChange={this.handleChange}>

@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const mapReduxStateToProps = (reduxStore) => ({
-    // this.props.reduxStore will contain the entire store
-    // reduxStore: reduxStore
-    // To only render when secondReducer is changed =>
     reduxStore 
-    // this.props.colors will be an array
 });
 
 class ThankYouPage extends Component {

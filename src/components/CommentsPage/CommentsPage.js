@@ -41,9 +41,8 @@ class CommentsPage extends Component {
         console.log('Rendering CommentPage')
         return(
             <div>
-                <pre>{JSON.stringify(this.props)}</pre>
                 <h2>4 of 4 pages</h2>
-                <h4>Progress Bar</h4>
+                {/* <h4>Progress Bar</h4> */}
                 <br />
                 <h4>Have anything else you'd like to share?</h4>
                 <input onChange={this.handleChange} placeholder="Leave comment here" 
